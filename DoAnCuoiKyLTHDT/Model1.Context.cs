@@ -13,10 +13,10 @@ namespace DoAnCuoiKyLTHDT
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DoAnCuoiKyLTHDTEntities : DbContext
+    public partial class DoAnCuoiKyLTHDTEntities1 : DbContext
     {
-        public DoAnCuoiKyLTHDTEntities()
-            : base("name=DoAnCuoiKyLTHDTEntities")
+        public DoAnCuoiKyLTHDTEntities1()
+            : base("name=DoAnCuoiKyLTHDTEntities1")
         {
         }
     

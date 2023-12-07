@@ -13,7 +13,7 @@ namespace DoAnCuoiKyLTHDT
     public partial class Login : Form
     {
 
-        DoAnCuoiKyLTHDTEntities db = new DoAnCuoiKyLTHDTEntities();
+        DoAnCuoiKyLTHDTEntities1 db = new DoAnCuoiKyLTHDTEntities1 ();
 
         private Point lastLocation;
 

@@ -372,7 +372,7 @@
           <End Role="Phong" Type="Self.Phong" Multiplicity="*" />
           <End Role="ThietBi" Type="Self.ThietBi" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="DoAnCuoiKyLTHDTEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="DoAnCuoiKyLTHDTEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="DangKyOes" EntityType="Self.DangKyO" />
           <EntitySet Name="HoaDons" EntityType="Self.HoaDon" />
           <EntitySet Name="Phongs" EntityType="Self.Phong" />
@@ -410,7 +410,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="DoAnCuoiKyLTHDTModelStoreContainer" CdmEntityContainer="DoAnCuoiKyLTHDTEntities">
+        <EntityContainerMapping StorageEntityContainer="DoAnCuoiKyLTHDTModelStoreContainer" CdmEntityContainer="DoAnCuoiKyLTHDTEntities1">
           <EntitySetMapping Name="DangKyOes">
             <EntityTypeMapping TypeName="DoAnCuoiKyLTHDTModel.DangKyO">
               <MappingFragment StoreEntitySet="DangKyO">
