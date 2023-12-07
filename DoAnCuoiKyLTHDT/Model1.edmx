@@ -1,0 +1,529 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DoAnCuoiKyLTHDTModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DangKyO">
+          <Key>
+            <PropertyRef Name="MaDK" />
+          </Key>
+          <Property Name="MaDK" Type="int" Nullable="false" />
+          <Property Name="Masv" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="TenSV" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="NgaySinh" Type="date" Nullable="false" />
+          <Property Name="Lop" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="GioiTinh" Type="varchar" MaxLength="3" />
+          <Property Name="NgayVaoO" Type="date" Nullable="false" />
+          <Property Name="SDT" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="MK" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="Phg" Type="int" Nullable="false" />
+          <Property Name="MaQL" Type="varchar" MaxLength="8" />
+        </EntityType>
+        <EntityType Name="HoaDon">
+          <Key>
+            <PropertyRef Name="MaHoaDon" />
+          </Key>
+          <Property Name="MaHoaDon" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="NgayLapHD" Type="date" Nullable="false" />
+          <Property Name="NgayThanhToan" Type="date" />
+          <Property Name="SoTienThanhToan" Type="int" />
+          <Property Name="Masv" Type="varchar" MaxLength="8" />
+          <Property Name="MaPhg" Type="int" />
+        </EntityType>
+        <EntityType Name="Phong">
+          <Key>
+            <PropertyRef Name="MaPhg" />
+          </Key>
+          <Property Name="MaPhg" Type="int" Nullable="false" />
+          <Property Name="SoGiuong" Type="int" Nullable="false" />
+          <Property Name="GiaTien" Type="int" Nullable="false" />
+          <Property Name="LoaiPhg" Type="nvarchar" MaxLength="7" Nullable="false" />
+        </EntityType>
+        <EntityType Name="QuanLy">
+          <Key>
+            <PropertyRef Name="MaQL" />
+          </Key>
+          <Property Name="MaQL" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="Ten" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="NgaySinh" Type="date" Nullable="false" />
+          <Property Name="SDT" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SinhVien">
+          <Key>
+            <PropertyRef Name="Masv" />
+          </Key>
+          <Property Name="Masv" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="TenSV" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="NgaySinh" Type="date" Nullable="false" />
+          <Property Name="Lop" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="GioiTinh" Type="varchar" MaxLength="3" />
+          <Property Name="NgayVaoO" Type="date" Nullable="false" />
+          <Property Name="SDT" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="MK" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="MaPhg" Type="int" />
+        </EntityType>
+        <EntityType Name="ThanNhan">
+          <Key>
+            <PropertyRef Name="MaTN" />
+            <PropertyRef Name="Masv" />
+          </Key>
+          <Property Name="MaTN" Type="int" Nullable="false" />
+          <Property Name="Masv" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="TenTN" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="QuanHe" Type="nvarchar" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ThietBi">
+          <Key>
+            <PropertyRef Name="MaTB" />
+          </Key>
+          <Property Name="MaTB" Type="int" Nullable="false" />
+          <Property Name="TenTB" Type="nvarchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ThietBiPhg">
+          <Key>
+            <PropertyRef Name="MaPhg" />
+            <PropertyRef Name="MaTB" />
+          </Key>
+          <Property Name="MaPhg" Type="int" Nullable="false" />
+          <Property Name="MaTB" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__DangKyO__MaQL__3A81B327">
+          <End Role="QuanLy" Type="Self.QuanLy" Multiplicity="0..1" />
+          <End Role="DangKyO" Type="Self.DangKyO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QuanLy">
+              <PropertyRef Name="MaQL" />
+            </Principal>
+            <Dependent Role="DangKyO">
+              <PropertyRef Name="MaQL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HoaDon__MaPhg__440B1D61">
+          <End Role="Phong" Type="Self.Phong" Multiplicity="0..1" />
+          <End Role="HoaDon" Type="Self.HoaDon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Phong">
+              <PropertyRef Name="MaPhg" />
+            </Principal>
+            <Dependent Role="HoaDon">
+              <PropertyRef Name="MaPhg" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HoaDon__Masv__4316F928">
+          <End Role="SinhVien" Type="Self.SinhVien" Multiplicity="0..1" />
+          <End Role="HoaDon" Type="Self.HoaDon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SinhVien">
+              <PropertyRef Name="Masv" />
+            </Principal>
+            <Dependent Role="HoaDon">
+              <PropertyRef Name="Masv" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SinhVien__MaPhg__403A8C7D">
+          <End Role="Phong" Type="Self.Phong" Multiplicity="0..1" />
+          <End Role="SinhVien" Type="Self.SinhVien" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Phong">
+              <PropertyRef Name="MaPhg" />
+            </Principal>
+            <Dependent Role="SinhVien">
+              <PropertyRef Name="MaPhg" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ThanNhan__Masv__46E78A0C">
+          <End Role="SinhVien" Type="Self.SinhVien" Multiplicity="1" />
+          <End Role="ThanNhan" Type="Self.ThanNhan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SinhVien">
+              <PropertyRef Name="Masv" />
+            </Principal>
+            <Dependent Role="ThanNhan">
+              <PropertyRef Name="Masv" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ThietBiPh__MaPhg__4BAC3F29">
+          <End Role="Phong" Type="Self.Phong" Multiplicity="1" />
+          <End Role="ThietBiPhg" Type="Self.ThietBiPhg" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Phong">
+              <PropertyRef Name="MaPhg" />
+            </Principal>
+            <Dependent Role="ThietBiPhg">
+              <PropertyRef Name="MaPhg" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ThietBiPhg__MaTB__4CA06362">
+          <End Role="ThietBi" Type="Self.ThietBi" Multiplicity="1" />
+          <End Role="ThietBiPhg" Type="Self.ThietBiPhg" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ThietBi">
+              <PropertyRef Name="MaTB" />
+            </Principal>
+            <Dependent Role="ThietBiPhg">
+              <PropertyRef Name="MaTB" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DoAnCuoiKyLTHDTModelStoreContainer">
+          <EntitySet Name="DangKyO" EntityType="Self.DangKyO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HoaDon" EntityType="Self.HoaDon" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Phong" EntityType="Self.Phong" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="QuanLy" EntityType="Self.QuanLy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SinhVien" EntityType="Self.SinhVien" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ThanNhan" EntityType="Self.ThanNhan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ThietBi" EntityType="Self.ThietBi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ThietBiPhg" EntityType="Self.ThietBiPhg" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__DangKyO__MaQL__3A81B327" Association="Self.FK__DangKyO__MaQL__3A81B327">
+            <End Role="QuanLy" EntitySet="QuanLy" />
+            <End Role="DangKyO" EntitySet="DangKyO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HoaDon__MaPhg__440B1D61" Association="Self.FK__HoaDon__MaPhg__440B1D61">
+            <End Role="Phong" EntitySet="Phong" />
+            <End Role="HoaDon" EntitySet="HoaDon" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HoaDon__Masv__4316F928" Association="Self.FK__HoaDon__Masv__4316F928">
+            <End Role="SinhVien" EntitySet="SinhVien" />
+            <End Role="HoaDon" EntitySet="HoaDon" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SinhVien__MaPhg__403A8C7D" Association="Self.FK__SinhVien__MaPhg__403A8C7D">
+            <End Role="Phong" EntitySet="Phong" />
+            <End Role="SinhVien" EntitySet="SinhVien" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ThanNhan__Masv__46E78A0C" Association="Self.FK__ThanNhan__Masv__46E78A0C">
+            <End Role="SinhVien" EntitySet="SinhVien" />
+            <End Role="ThanNhan" EntitySet="ThanNhan" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ThietBiPh__MaPhg__4BAC3F29" Association="Self.FK__ThietBiPh__MaPhg__4BAC3F29">
+            <End Role="Phong" EntitySet="Phong" />
+            <End Role="ThietBiPhg" EntitySet="ThietBiPhg" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ThietBiPhg__MaTB__4CA06362" Association="Self.FK__ThietBiPhg__MaTB__4CA06362">
+            <End Role="ThietBi" EntitySet="ThietBi" />
+            <End Role="ThietBiPhg" EntitySet="ThietBiPhg" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DoAnCuoiKyLTHDTModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="DangKyO">
+          <Key>
+            <PropertyRef Name="MaDK" />
+          </Key>
+          <Property Name="MaDK" Type="Int32" Nullable="false" />
+          <Property Name="Masv" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TenSV" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NgaySinh" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Lop" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="GioiTinh" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="NgayVaoO" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="SDT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MK" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Phg" Type="Int32" Nullable="false" />
+          <Property Name="MaQL" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="QuanLy" Relationship="Self.FK__DangKyO__MaQL__3A81B327" FromRole="DangKyO" ToRole="QuanLy" />
+        </EntityType>
+        <EntityType Name="HoaDon">
+          <Key>
+            <PropertyRef Name="MaHoaDon" />
+          </Key>
+          <Property Name="MaHoaDon" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NgayLapHD" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="NgayThanhToan" Type="DateTime" Precision="0" />
+          <Property Name="SoTienThanhToan" Type="Int32" />
+          <Property Name="Masv" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="MaPhg" Type="Int32" />
+          <NavigationProperty Name="Phong" Relationship="Self.FK__HoaDon__MaPhg__440B1D61" FromRole="HoaDon" ToRole="Phong" />
+          <NavigationProperty Name="SinhVien" Relationship="Self.FK__HoaDon__Masv__4316F928" FromRole="HoaDon" ToRole="SinhVien" />
+        </EntityType>
+        <EntityType Name="Phong">
+          <Key>
+            <PropertyRef Name="MaPhg" />
+          </Key>
+          <Property Name="MaPhg" Type="Int32" Nullable="false" />
+          <Property Name="SoGiuong" Type="Int32" Nullable="false" />
+          <Property Name="GiaTien" Type="Int32" Nullable="false" />
+          <Property Name="LoaiPhg" Type="String" MaxLength="7" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="HoaDons" Relationship="Self.FK__HoaDon__MaPhg__440B1D61" FromRole="Phong" ToRole="HoaDon" />
+          <NavigationProperty Name="SinhViens" Relationship="Self.FK__SinhVien__MaPhg__403A8C7D" FromRole="Phong" ToRole="SinhVien" />
+          <NavigationProperty Name="ThietBis" Relationship="Self.ThietBiPhg" FromRole="Phong" ToRole="ThietBi" />
+        </EntityType>
+        <EntityType Name="QuanLy">
+          <Key>
+            <PropertyRef Name="MaQL" />
+          </Key>
+          <Property Name="MaQL" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Ten" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NgaySinh" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="SDT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="DangKyOes" Relationship="Self.FK__DangKyO__MaQL__3A81B327" FromRole="QuanLy" ToRole="DangKyO" />
+        </EntityType>
+        <EntityType Name="SinhVien">
+          <Key>
+            <PropertyRef Name="Masv" />
+          </Key>
+          <Property Name="Masv" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TenSV" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NgaySinh" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Lop" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="GioiTinh" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="NgayVaoO" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="SDT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MK" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MaPhg" Type="Int32" />
+          <NavigationProperty Name="HoaDons" Relationship="Self.FK__HoaDon__Masv__4316F928" FromRole="SinhVien" ToRole="HoaDon" />
+          <NavigationProperty Name="Phong" Relationship="Self.FK__SinhVien__MaPhg__403A8C7D" FromRole="SinhVien" ToRole="Phong" />
+          <NavigationProperty Name="ThanNhans" Relationship="Self.FK__ThanNhan__Masv__46E78A0C" FromRole="SinhVien" ToRole="ThanNhan" />
+        </EntityType>
+        <EntityType Name="ThanNhan">
+          <Key>
+            <PropertyRef Name="MaTN" />
+            <PropertyRef Name="Masv" />
+          </Key>
+          <Property Name="MaTN" Type="Int32" Nullable="false" />
+          <Property Name="Masv" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TenTN" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="QuanHe" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="SinhVien" Relationship="Self.FK__ThanNhan__Masv__46E78A0C" FromRole="ThanNhan" ToRole="SinhVien" />
+        </EntityType>
+        <EntityType Name="ThietBi">
+          <Key>
+            <PropertyRef Name="MaTB" />
+          </Key>
+          <Property Name="MaTB" Type="Int32" Nullable="false" />
+          <Property Name="TenTB" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Phongs" Relationship="Self.ThietBiPhg" FromRole="ThietBi" ToRole="Phong" />
+        </EntityType>
+        <Association Name="FK__DangKyO__MaQL__3A81B327">
+          <End Role="QuanLy" Type="Self.QuanLy" Multiplicity="0..1" />
+          <End Role="DangKyO" Type="Self.DangKyO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QuanLy">
+              <PropertyRef Name="MaQL" />
+            </Principal>
+            <Dependent Role="DangKyO">
+              <PropertyRef Name="MaQL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HoaDon__MaPhg__440B1D61">
+          <End Role="Phong" Type="Self.Phong" Multiplicity="0..1" />
+          <End Role="HoaDon" Type="Self.HoaDon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Phong">
+              <PropertyRef Name="MaPhg" />
+            </Principal>
+            <Dependent Role="HoaDon">
+              <PropertyRef Name="MaPhg" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HoaDon__Masv__4316F928">
+          <End Role="SinhVien" Type="Self.SinhVien" Multiplicity="0..1" />
+          <End Role="HoaDon" Type="Self.HoaDon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SinhVien">
+              <PropertyRef Name="Masv" />
+            </Principal>
+            <Dependent Role="HoaDon">
+              <PropertyRef Name="Masv" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SinhVien__MaPhg__403A8C7D">
+          <End Role="Phong" Type="Self.Phong" Multiplicity="0..1" />
+          <End Role="SinhVien" Type="Self.SinhVien" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Phong">
+              <PropertyRef Name="MaPhg" />
+            </Principal>
+            <Dependent Role="SinhVien">
+              <PropertyRef Name="MaPhg" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ThanNhan__Masv__46E78A0C">
+          <End Role="SinhVien" Type="Self.SinhVien" Multiplicity="1" />
+          <End Role="ThanNhan" Type="Self.ThanNhan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SinhVien">
+              <PropertyRef Name="Masv" />
+            </Principal>
+            <Dependent Role="ThanNhan">
+              <PropertyRef Name="Masv" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ThietBiPhg">
+          <End Role="Phong" Type="Self.Phong" Multiplicity="*" />
+          <End Role="ThietBi" Type="Self.ThietBi" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="DoAnCuoiKyLTHDTEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DangKyOes" EntityType="Self.DangKyO" />
+          <EntitySet Name="HoaDons" EntityType="Self.HoaDon" />
+          <EntitySet Name="Phongs" EntityType="Self.Phong" />
+          <EntitySet Name="QuanLies" EntityType="Self.QuanLy" />
+          <EntitySet Name="SinhViens" EntityType="Self.SinhVien" />
+          <EntitySet Name="ThanNhans" EntityType="Self.ThanNhan" />
+          <EntitySet Name="ThietBis" EntityType="Self.ThietBi" />
+          <AssociationSet Name="FK__DangKyO__MaQL__3A81B327" Association="Self.FK__DangKyO__MaQL__3A81B327">
+            <End Role="QuanLy" EntitySet="QuanLies" />
+            <End Role="DangKyO" EntitySet="DangKyOes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HoaDon__MaPhg__440B1D61" Association="Self.FK__HoaDon__MaPhg__440B1D61">
+            <End Role="Phong" EntitySet="Phongs" />
+            <End Role="HoaDon" EntitySet="HoaDons" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HoaDon__Masv__4316F928" Association="Self.FK__HoaDon__Masv__4316F928">
+            <End Role="SinhVien" EntitySet="SinhViens" />
+            <End Role="HoaDon" EntitySet="HoaDons" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SinhVien__MaPhg__403A8C7D" Association="Self.FK__SinhVien__MaPhg__403A8C7D">
+            <End Role="Phong" EntitySet="Phongs" />
+            <End Role="SinhVien" EntitySet="SinhViens" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ThanNhan__Masv__46E78A0C" Association="Self.FK__ThanNhan__Masv__46E78A0C">
+            <End Role="SinhVien" EntitySet="SinhViens" />
+            <End Role="ThanNhan" EntitySet="ThanNhans" />
+          </AssociationSet>
+          <AssociationSet Name="ThietBiPhg" Association="Self.ThietBiPhg">
+            <End Role="Phong" EntitySet="Phongs" />
+            <End Role="ThietBi" EntitySet="ThietBis" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DoAnCuoiKyLTHDTModelStoreContainer" CdmEntityContainer="DoAnCuoiKyLTHDTEntities">
+          <EntitySetMapping Name="DangKyOes">
+            <EntityTypeMapping TypeName="DoAnCuoiKyLTHDTModel.DangKyO">
+              <MappingFragment StoreEntitySet="DangKyO">
+                <ScalarProperty Name="MaDK" ColumnName="MaDK" />
+                <ScalarProperty Name="Masv" ColumnName="Masv" />
+                <ScalarProperty Name="TenSV" ColumnName="TenSV" />
+                <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+                <ScalarProperty Name="Lop" ColumnName="Lop" />
+                <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+                <ScalarProperty Name="NgayVaoO" ColumnName="NgayVaoO" />
+                <ScalarProperty Name="SDT" ColumnName="SDT" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="MK" ColumnName="MK" />
+                <ScalarProperty Name="Phg" ColumnName="Phg" />
+                <ScalarProperty Name="MaQL" ColumnName="MaQL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HoaDons">
+            <EntityTypeMapping TypeName="DoAnCuoiKyLTHDTModel.HoaDon">
+              <MappingFragment StoreEntitySet="HoaDon">
+                <ScalarProperty Name="MaHoaDon" ColumnName="MaHoaDon" />
+                <ScalarProperty Name="NgayLapHD" ColumnName="NgayLapHD" />
+                <ScalarProperty Name="NgayThanhToan" ColumnName="NgayThanhToan" />
+                <ScalarProperty Name="SoTienThanhToan" ColumnName="SoTienThanhToan" />
+                <ScalarProperty Name="Masv" ColumnName="Masv" />
+                <ScalarProperty Name="MaPhg" ColumnName="MaPhg" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Phongs">
+            <EntityTypeMapping TypeName="DoAnCuoiKyLTHDTModel.Phong">
+              <MappingFragment StoreEntitySet="Phong">
+                <ScalarProperty Name="MaPhg" ColumnName="MaPhg" />
+                <ScalarProperty Name="SoGiuong" ColumnName="SoGiuong" />
+                <ScalarProperty Name="GiaTien" ColumnName="GiaTien" />
+                <ScalarProperty Name="LoaiPhg" ColumnName="LoaiPhg" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QuanLies">
+            <EntityTypeMapping TypeName="DoAnCuoiKyLTHDTModel.QuanLy">
+              <MappingFragment StoreEntitySet="QuanLy">
+                <ScalarProperty Name="MaQL" ColumnName="MaQL" />
+                <ScalarProperty Name="Ten" ColumnName="Ten" />
+                <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+                <ScalarProperty Name="SDT" ColumnName="SDT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SinhViens">
+            <EntityTypeMapping TypeName="DoAnCuoiKyLTHDTModel.SinhVien">
+              <MappingFragment StoreEntitySet="SinhVien">
+                <ScalarProperty Name="Masv" ColumnName="Masv" />
+                <ScalarProperty Name="TenSV" ColumnName="TenSV" />
+                <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+                <ScalarProperty Name="Lop" ColumnName="Lop" />
+                <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+                <ScalarProperty Name="NgayVaoO" ColumnName="NgayVaoO" />
+                <ScalarProperty Name="SDT" ColumnName="SDT" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="MK" ColumnName="MK" />
+                <ScalarProperty Name="MaPhg" ColumnName="MaPhg" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ThanNhans">
+            <EntityTypeMapping TypeName="DoAnCuoiKyLTHDTModel.ThanNhan">
+              <MappingFragment StoreEntitySet="ThanNhan">
+                <ScalarProperty Name="MaTN" ColumnName="MaTN" />
+                <ScalarProperty Name="Masv" ColumnName="Masv" />
+                <ScalarProperty Name="TenTN" ColumnName="TenTN" />
+                <ScalarProperty Name="QuanHe" ColumnName="QuanHe" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ThietBis">
+            <EntityTypeMapping TypeName="DoAnCuoiKyLTHDTModel.ThietBi">
+              <MappingFragment StoreEntitySet="ThietBi">
+                <ScalarProperty Name="MaTB" ColumnName="MaTB" />
+                <ScalarProperty Name="TenTB" ColumnName="TenTB" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="ThietBiPhg" TypeName="DoAnCuoiKyLTHDTModel.ThietBiPhg" StoreEntitySet="ThietBiPhg">
+            <EndProperty Name="Phong">
+              <ScalarProperty Name="MaPhg" ColumnName="MaPhg" />
+            </EndProperty>
+            <EndProperty Name="ThietBi">
+              <ScalarProperty Name="MaTB" ColumnName="MaTB" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
