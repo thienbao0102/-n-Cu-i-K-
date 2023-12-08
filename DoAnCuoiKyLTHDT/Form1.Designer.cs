@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.QuenMK = new System.Windows.Forms.Label();
             this.lblDangKyO = new System.Windows.Forms.Label();
@@ -40,7 +41,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.controlBase = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pasteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
+            this.controlBase.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -131,6 +137,7 @@
             // txtMatKhau
             // 
             this.txtMatKhau.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtMatKhau.ContextMenuStrip = this.controlBase;
             this.txtMatKhau.Location = new System.Drawing.Point(200, 309);
             this.txtMatKhau.Name = "txtMatKhau";
             this.txtMatKhau.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -141,6 +148,7 @@
             // txtMaDN
             // 
             this.txtMaDN.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtMaDN.ContextMenuStrip = this.controlBase;
             this.txtMaDN.Location = new System.Drawing.Point(200, 206);
             this.txtMaDN.Name = "txtMaDN";
             this.txtMaDN.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -181,6 +189,35 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Đăng Nhập";
             // 
+            // controlBase
+            // 
+            this.controlBase.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.controlBase.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.copyToolStripMenuItem,
+            this.cutToolStripMenuItem,
+            this.pasteToolStripMenuItem});
+            this.controlBase.Name = "controlBase";
+            this.controlBase.Size = new System.Drawing.Size(115, 76);
+            // 
+            // copyToolStripMenuItem
+            // 
+            this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
+            this.copyToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.copyToolStripMenuItem.Text = "copy";
+            this.copyToolStripMenuItem.Click += new System.EventHandler(this.copyToolStripMenuItem_Click);
+            // 
+            // cutToolStripMenuItem
+            // 
+            this.cutToolStripMenuItem.Name = "cutToolStripMenuItem";
+            this.cutToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.cutToolStripMenuItem.Text = "cut";
+            // 
+            // pasteToolStripMenuItem
+            // 
+            this.pasteToolStripMenuItem.Name = "pasteToolStripMenuItem";
+            this.pasteToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.pasteToolStripMenuItem.Text = "paste";
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
@@ -199,6 +236,7 @@
             this.Text = "KTX";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.controlBase.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -217,6 +255,10 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblDangKyO;
         private System.Windows.Forms.Label QuenMK;
+        private System.Windows.Forms.ContextMenuStrip controlBase;
+        private System.Windows.Forms.ToolStripMenuItem copyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pasteToolStripMenuItem;
     }
 }
 

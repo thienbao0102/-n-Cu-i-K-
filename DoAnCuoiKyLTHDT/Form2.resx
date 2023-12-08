@@ -153,6 +153,27 @@
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="BackPage.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="BackPage.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 10.8pt, style=Underline</value>
+  </data>
+  <data name="BackPage.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="BackPage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>30, 13</value>
+  </data>
+  <data name="BackPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>76, 20</value>
+  </data>
+  <data name="BackPage.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="BackPage.Text" xml:space="preserve">
+    <value>Quay Lại</value>
+  </data>
   <data name="&gt;&gt;BackPage.Name" xml:space="preserve">
     <value>BackPage</value>
   </data>
@@ -186,11 +207,92 @@
   <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="radNu.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="radNu.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="radNu.Location" type="System.Drawing.Point, System.Drawing">
+    <value>129, 4</value>
+  </data>
+  <data name="radNu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>49, 24</value>
+  </data>
+  <data name="radNu.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="radNu.Text" xml:space="preserve">
+    <value>nữ</value>
+  </data>
+  <data name="&gt;&gt;radNu.Name" xml:space="preserve">
+    <value>radNu</value>
+  </data>
+  <data name="&gt;&gt;radNu.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;radNu.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;radNu.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="radNam.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="radNam.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="radNam.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 4</value>
+  </data>
+  <data name="radNam.Size" type="System.Drawing.Size, System.Drawing">
+    <value>61, 24</value>
+  </data>
+  <data name="radNam.TabIndex" type="System.Int32, mscorlib">
+    <value>22</value>
+  </data>
+  <data name="radNam.Text" xml:space="preserve">
+    <value>nam</value>
+  </data>
+  <data name="&gt;&gt;radNam.Name" xml:space="preserve">
+    <value>radNam</value>
+  </data>
+  <data name="&gt;&gt;radNam.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;radNam.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;radNam.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>127, 106</value>
+  </data>
+  <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 32</value>
+  </data>
+  <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>27</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Name" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Parent" xml:space="preserve">
+    <value>panel2</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="btnDangKy.Font" type="System.Drawing.Font, System.Drawing">
     <value>Times New Roman, 12pt, style=Bold</value>
   </data>
   <data name="btnDangKy.Location" type="System.Drawing.Point, System.Drawing">
-    <value>750, 322</value>
+    <value>127, 383</value>
   </data>
   <data name="btnDangKy.Size" type="System.Drawing.Size, System.Drawing">
     <value>150, 40</value>
@@ -211,52 +313,7 @@
     <value>panel2</value>
   </data>
   <data name="&gt;&gt;btnDangKy.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="dataGridView1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>41, 322</value>
-  </data>
-  <data name="dataGridView1.RowHeadersWidth" type="System.Int32, mscorlib">
-    <value>51</value>
-  </data>
-  <data name="dataGridView1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>642, 214</value>
-  </data>
-  <data name="dataGridView1.TabIndex" type="System.Int32, mscorlib">
-    <value>25</value>
-  </data>
-  <data name="&gt;&gt;dataGridView1.Name" xml:space="preserve">
-    <value>dataGridView1</value>
-  </data>
-  <data name="&gt;&gt;dataGridView1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;dataGridView1.Parent" xml:space="preserve">
-    <value>panel2</value>
-  </data>
-  <data name="&gt;&gt;dataGridView1.ZOrder" xml:space="preserve">
     <value>1</value>
-  </data>
-  <data name="txtPhong.Location" type="System.Drawing.Point, System.Drawing">
-    <value>360, 269</value>
-  </data>
-  <data name="txtPhong.Size" type="System.Drawing.Size, System.Drawing">
-    <value>202, 28</value>
-  </data>
-  <data name="txtPhong.TabIndex" type="System.Int32, mscorlib">
-    <value>24</value>
-  </data>
-  <data name="&gt;&gt;txtPhong.Name" xml:space="preserve">
-    <value>txtPhong</value>
-  </data>
-  <data name="&gt;&gt;txtPhong.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;txtPhong.Parent" xml:space="preserve">
-    <value>panel2</value>
-  </data>
-  <data name="&gt;&gt;txtPhong.ZOrder" xml:space="preserve">
-    <value>2</value>
   </data>
   <data name="radPhgTot.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -286,7 +343,7 @@
     <value>panel2</value>
   </data>
   <data name="&gt;&gt;radPhgTot.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>2</value>
   </data>
   <data name="radPhgThuong.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -316,61 +373,7 @@
     <value>panel2</value>
   </data>
   <data name="&gt;&gt;radPhgThuong.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="radNu.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="radNu.Location" type="System.Drawing.Point, System.Drawing">
-    <value>219, 111</value>
-  </data>
-  <data name="radNu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>49, 24</value>
-  </data>
-  <data name="radNu.TabIndex" type="System.Int32, mscorlib">
-    <value>21</value>
-  </data>
-  <data name="radNu.Text" xml:space="preserve">
-    <value>nữ</value>
-  </data>
-  <data name="&gt;&gt;radNu.Name" xml:space="preserve">
-    <value>radNu</value>
-  </data>
-  <data name="&gt;&gt;radNu.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;radNu.Parent" xml:space="preserve">
-    <value>panel2</value>
-  </data>
-  <data name="&gt;&gt;radNu.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="radNam.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="radNam.Location" type="System.Drawing.Point, System.Drawing">
-    <value>127, 111</value>
-  </data>
-  <data name="radNam.Size" type="System.Drawing.Size, System.Drawing">
-    <value>61, 24</value>
-  </data>
-  <data name="radNam.TabIndex" type="System.Int32, mscorlib">
-    <value>20</value>
-  </data>
-  <data name="radNam.Text" xml:space="preserve">
-    <value>nam</value>
-  </data>
-  <data name="&gt;&gt;radNam.Name" xml:space="preserve">
-    <value>radNam</value>
-  </data>
-  <data name="&gt;&gt;radNam.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;radNam.Parent" xml:space="preserve">
-    <value>panel2</value>
-  </data>
-  <data name="&gt;&gt;radNam.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>3</value>
   </data>
   <data name="txtSDT.Location" type="System.Drawing.Point, System.Drawing">
     <value>428, 110</value>
@@ -391,7 +394,7 @@
     <value>panel2</value>
   </data>
   <data name="&gt;&gt;txtSDT.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>4</value>
   </data>
   <data name="txtNgayVaoO.Location" type="System.Drawing.Point, System.Drawing">
     <value>483, 230</value>
@@ -412,7 +415,7 @@
     <value>panel2</value>
   </data>
   <data name="&gt;&gt;txtNgayVaoO.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>5</value>
   </data>
   <data name="txtNgaySinh.Location" type="System.Drawing.Point, System.Drawing">
     <value>127, 148</value>
@@ -433,7 +436,7 @@
     <value>panel2</value>
   </data>
   <data name="&gt;&gt;txtNgaySinh.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>6</value>
   </data>
   <data name="txtMatKhau.Location" type="System.Drawing.Point, System.Drawing">
     <value>127, 230</value>
@@ -454,7 +457,7 @@
     <value>panel2</value>
   </data>
   <data name="&gt;&gt;txtMatKhau.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>7</value>
   </data>
   <data name="txtEmail.Location" type="System.Drawing.Point, System.Drawing">
     <value>127, 190</value>
@@ -475,7 +478,7 @@
     <value>panel2</value>
   </data>
   <data name="&gt;&gt;txtEmail.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>8</value>
   </data>
   <data name="txtLop.Location" type="System.Drawing.Point, System.Drawing">
     <value>429, 65</value>
@@ -496,7 +499,7 @@
     <value>panel2</value>
   </data>
   <data name="&gt;&gt;txtLop.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>9</value>
   </data>
   <data name="txtMSSV.Location" type="System.Drawing.Point, System.Drawing">
     <value>127, 65</value>
@@ -517,7 +520,7 @@
     <value>panel2</value>
   </data>
   <data name="&gt;&gt;txtMSSV.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>10</value>
   </data>
   <data name="txtHoTen.Location" type="System.Drawing.Point, System.Drawing">
     <value>127, 30</value>
@@ -538,7 +541,7 @@
     <value>panel2</value>
   </data>
   <data name="&gt;&gt;txtHoTen.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>11</value>
   </data>
   <data name="label11.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -565,7 +568,7 @@
     <value>panel2</value>
   </data>
   <data name="&gt;&gt;label11.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>12</value>
   </data>
   <data name="label10.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -592,7 +595,7 @@
     <value>panel2</value>
   </data>
   <data name="&gt;&gt;label10.ZOrder" xml:space="preserve">
-    <value>16</value>
+    <value>13</value>
   </data>
   <data name="label9.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -619,7 +622,7 @@
     <value>panel2</value>
   </data>
   <data name="&gt;&gt;label9.ZOrder" xml:space="preserve">
-    <value>17</value>
+    <value>14</value>
   </data>
   <data name="label8.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -646,7 +649,7 @@
     <value>panel2</value>
   </data>
   <data name="&gt;&gt;label8.ZOrder" xml:space="preserve">
-    <value>18</value>
+    <value>15</value>
   </data>
   <data name="label7.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -673,7 +676,7 @@
     <value>panel2</value>
   </data>
   <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
-    <value>19</value>
+    <value>16</value>
   </data>
   <data name="label6.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -700,7 +703,7 @@
     <value>panel2</value>
   </data>
   <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
-    <value>20</value>
+    <value>17</value>
   </data>
   <data name="label5.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -727,7 +730,7 @@
     <value>panel2</value>
   </data>
   <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
-    <value>21</value>
+    <value>18</value>
   </data>
   <data name="label4.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -754,7 +757,7 @@
     <value>panel2</value>
   </data>
   <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
-    <value>22</value>
+    <value>19</value>
   </data>
   <data name="label3.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -781,7 +784,7 @@
     <value>panel2</value>
   </data>
   <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
-    <value>23</value>
+    <value>20</value>
   </data>
   <data name="label2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -808,7 +811,7 @@
     <value>panel2</value>
   </data>
   <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>24</value>
+    <value>21</value>
   </data>
   <data name="panel2.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 90</value>
@@ -829,39 +832,6 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;panel2.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="BackPage.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="BackPage.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Times New Roman, 10.8pt, style=Underline</value>
-  </data>
-  <data name="BackPage.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="BackPage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>30, 13</value>
-  </data>
-  <data name="BackPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>76, 20</value>
-  </data>
-  <data name="BackPage.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="BackPage.Text" xml:space="preserve">
-    <value>Quay Lại</value>
-  </data>
-  <data name="&gt;&gt;BackPage.Name" xml:space="preserve">
-    <value>BackPage</value>
-  </data>
-  <data name="&gt;&gt;BackPage.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;BackPage.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;BackPage.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

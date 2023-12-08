@@ -7,13 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace DoAnCuoiKyLTHDT
 {
     public partial class Login : Form
     {
 
-        DoAnCuoiKyLTHDTEntities1 db = new DoAnCuoiKyLTHDTEntities1 ();
+        DoAnCuoiKyLTHDTEntities2 db = new DoAnCuoiKyLTHDTEntities2 ();
 
         private Point lastLocation;
 
@@ -38,21 +39,34 @@ namespace DoAnCuoiKyLTHDT
 
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
+            //check người đn vào là quản lý hay sinh viên
             bool sv = db.SinhViens.Any(x=> x.Masv == txtMaDN.Text && x.MK == txtMatKhau.Text);
+            bool ql = db.QuanLies.Any(x => x.MaQL == txtMaDN.Text && x.MK == txtMatKhau.Text);
 
-            if (sv == false )
-            {
-                MessageBox.Show("Chưa Có Tài Khoản Hoặc Sai MaSV/MK");
-                return;
-            }
             lastLocation = this.Location;
             this.Hide();
+            if (sv)
+            {
+                GiaoDienSV f = new GiaoDienSV();
 
-            GiaoDienSV f = new GiaoDienSV();
+                f.StartPosition = FormStartPosition.Manual;
+                f.Location = lastLocation;
+                f.ShowDialog();
+            }
+            else if (ql)
+            {
+                GiaoDienQuanLy q = new GiaoDienQuanLy();
+                q.StartPosition = FormStartPosition.Manual;
+                q.Location = lastLocation;
+                q.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Chưa Có Tài Khoản Hoặc Sai Ma/MK");
+            }
 
-            f.StartPosition = FormStartPosition.Manual;
-            f.Location = lastLocation;
-            f.ShowDialog();
+
+
         }
 
         private void QuenMK_Click(object sender, EventArgs e)
@@ -66,5 +80,13 @@ namespace DoAnCuoiKyLTHDT
             f.Location = lastLocation;
             f.ShowDialog();
         }
+
+        private void copyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+
+        }
+
+
     }
 }

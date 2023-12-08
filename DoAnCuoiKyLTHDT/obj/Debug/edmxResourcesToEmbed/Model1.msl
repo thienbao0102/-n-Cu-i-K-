@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="DoAnCuoiKyLTHDTModelStoreContainer" CdmEntityContainer="DoAnCuoiKyLTHDTEntities1">
+  <EntityContainerMapping StorageEntityContainer="DoAnCuoiKyLTHDTModelStoreContainer" CdmEntityContainer="DoAnCuoiKyLTHDTEntities2">
     <EntitySetMapping Name="DangKyOes">
       <EntityTypeMapping TypeName="DoAnCuoiKyLTHDTModel.DangKyO">
         <MappingFragment StoreEntitySet="DangKyO">
@@ -48,6 +48,7 @@
           <ScalarProperty Name="Ten" ColumnName="Ten" />
           <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
           <ScalarProperty Name="SDT" ColumnName="SDT" />
+          <ScalarProperty Name="MK" ColumnName="MK" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

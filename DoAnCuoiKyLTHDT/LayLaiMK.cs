@@ -14,7 +14,7 @@ namespace DoAnCuoiKyLTHDT
 {
     public partial class LayLaiMK : Form
     {
-        DoAnCuoiKyLTHDTEntities1 db = new DoAnCuoiKyLTHDTEntities1();
+        DoAnCuoiKyLTHDTEntities2 db = new DoAnCuoiKyLTHDTEntities2();
         private Point lastLocation;
         private string maXT;
         public LayLaiMK()
@@ -99,6 +99,15 @@ namespace DoAnCuoiKyLTHDT
 
             db.SaveChanges();
             MessageBox.Show("Đổi Mật Khẩu Thành Công");
+            lastLocation = this.Location;
+            this.Hide();
+
+            Login f = new Login();
+
+            f.StartPosition = FormStartPosition.Manual;
+            f.Location = lastLocation;
+
+            f.ShowDialog();
         }
     }
 }

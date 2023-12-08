@@ -24,6 +24,7 @@ namespace DoAnCuoiKyLTHDT
         public string Ten { get; set; }
         public System.DateTime NgaySinh { get; set; }
         public string SDT { get; set; }
+        public string MK { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DangKyO> DangKyOes { get; set; }

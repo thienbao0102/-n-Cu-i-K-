@@ -45,6 +45,7 @@
     <Property Name="Ten" Type="nvarchar" MaxLength="30" Nullable="false" />
     <Property Name="NgaySinh" Type="date" Nullable="false" />
     <Property Name="SDT" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="MK" Type="varchar" MaxLength="16" Nullable="false" />
   </EntityType>
   <EntityType Name="SinhVien">
     <Key>

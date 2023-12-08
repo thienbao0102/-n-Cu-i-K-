@@ -69,6 +69,7 @@
             this.txtReMK.Name = "txtReMK";
             this.txtReMK.Size = new System.Drawing.Size(321, 28);
             this.txtReMK.TabIndex = 7;
+            this.txtReMK.UseSystemPasswordChar = true;
             // 
             // txtMK
             // 
@@ -76,6 +77,7 @@
             this.txtMK.Name = "txtMK";
             this.txtMK.Size = new System.Drawing.Size(321, 28);
             this.txtMK.TabIndex = 6;
+            this.txtMK.UseSystemPasswordChar = true;
             // 
             // txtEmail
             // 

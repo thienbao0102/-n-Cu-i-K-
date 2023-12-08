@@ -19,3 +19,4 @@ D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\bin\Debug\EntityFramework.SqlServe
 D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\obj\Debug\DoAnCuoiKyLTHDT.GiaoDienSV.resources
 D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\obj\Debug\DoAnCuoiKyLTHDT.csproj.CopyComplete
 D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\obj\Debug\DoAnCuoiKyLTHDT.LayLaiMK.resources
+D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\obj\Debug\DoAnCuoiKyLTHDT.GiaoDienQuanLy.resources

@@ -73,6 +73,12 @@
     <Compile Include="Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
+    <Compile Include="GiaoDienQuanLy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GiaoDienQuanLy.Designer.cs">
+      <DependentUpon>GiaoDienQuanLy.cs</DependentUpon>
+    </Compile>
     <Compile Include="GiaoDienSV.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,6 +135,9 @@
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GiaoDienQuanLy.resx">
+      <DependentUpon>GiaoDienQuanLy.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GiaoDienSV.resx">
       <DependentUpon>GiaoDienSV.cs</DependentUpon>
     </EmbeddedResource>
@@ -177,6 +186,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\user.png" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Model1.Context.tt">
