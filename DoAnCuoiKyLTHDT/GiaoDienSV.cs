@@ -16,5 +16,10 @@ namespace DoAnCuoiKyLTHDT
         {
             InitializeComponent();
         }
+
+        private void GiaoDienSV_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
