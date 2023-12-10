@@ -11,6 +11,8 @@ using System.Security.Cryptography.Xml;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.Remoting.Contexts;
+using System.Data.Entity;
 
 namespace DoAnCuoiKyLTHDT
 {
@@ -80,8 +82,23 @@ namespace DoAnCuoiKyLTHDT
             a.Columns[12].Visible = false;
 
         }
+        private void ShowDSHD(List<HoaDon> dshd, object sender)
+        {
+            DataGridView a = (DataGridView)sender;
+            a.DataSource = dshd;
+            a.Columns[5].Width = 0;
+            a.Columns[5].Visible = false;
+            a.Columns[6].Width = 0;
+            a.Columns[6].Visible = false;
+            a.Columns[4].Width = 0;
+            a.Columns[4].Visible = false;
+            a.Columns[7].Width = 0;
+            a.Columns[7].Visible = false;
 
-//******************************************************************************************************
+
+        }
+
+        //******************************************************************************************************
         //chuc nang quan ly phong
         private void dtgvPhg_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -137,7 +154,7 @@ namespace DoAnCuoiKyLTHDT
             ChucNangDKO.Visible = false;
             ChucNangThanhToan.Visible = false;
             ChucNangQLTB.Visible = false;
-
+            ChucNangQLHoaDon.Visible = false;
             //hien thị data lên lưới
             dssv = db.SinhViens.ToList();
             ShowDSSV(dssv, dtgvSinhVien);
@@ -227,6 +244,7 @@ namespace DoAnCuoiKyLTHDT
             ChucNangDKO.Visible = false;
             ChucNangThanhToan.Visible = false;
             ChucNangQLTB.Visible = false;
+            ChucNangQLHoaDon.Visible = false;
         }
 //******************************************************************************************************
         //chuc nang duyet dk o
@@ -246,6 +264,7 @@ namespace DoAnCuoiKyLTHDT
             ChucNangDKO.Visible = true;
             ChucNangThanhToan.Visible = false;
             ChucNangQLTB.Visible = false;
+            ChucNangQLHoaDon.Visible = false;
 
             //show data leen luoi
             dsdk = db.DangKyOes.ToList();
@@ -460,6 +479,7 @@ namespace DoAnCuoiKyLTHDT
             ChucNangDKO.Visible = false;
             ChucNangThanhToan.Visible = true;
             ChucNangQLTB.Visible = false;
+            ChucNangQLHoaDon.Visible = false;
 
             //hien thi danh sach hoa don len luoi
             dshoadon = db.HoaDons.Where(a=> (a.Phong.GiaTien - a.SoTienThanhToan) > 0).ToList();
@@ -524,6 +544,7 @@ namespace DoAnCuoiKyLTHDT
             ChucNangDKO.Visible = false;
             ChucNangThanhToan.Visible = false;
             ChucNangQLTB.Visible = true;
+            ChucNangQLHoaDon.Visible = false;
 
             //hien thi du lieu len luoi
             dsPhg = db.Phongs.ToList();
@@ -565,9 +586,166 @@ namespace DoAnCuoiKyLTHDT
             { return; }
             //show len text
             txtMaLoaiThietBi.Text = dsthietbi[e.RowIndex].MaTB.ToString();
+
+            txtMaLTBThemXoa.Text = dsthietbi[e.RowIndex].MaTB.ToString();
+            txtTenLTBThemXoa.Text = dsthietbi[e.RowIndex].TenTB.ToString();
+        }
+        //them thiet bị vo phong
+        private void btnThemThietBi_Click(object sender, EventArgs e)
+        {
+            int maph = int.Parse(txtMaPhgThietBi.Text);
+            int maloaitb = int.Parse(txtMaLoaiThietBi.Text);
+            List<ThietBi> check = db.Phongs.Where(a => a.MaPhg == maph).ToList()[0].ThietBis.Where(c => c.MaTB == maloaitb).ToList();
+            if(check.Count > 0)
+            {
+                MessageBox.Show("Đã Có Thiết Bị Này Trong Phòng");
+                return;
+            }                    
+            // them vao db
+
+            ThietBi tbnew = db.ThietBis.Where(a => a.MaTB == maloaitb).ToList()[0];
+            Phong phgnew = db.Phongs.Where(a=> a.MaPhg == maph).ToList()[0];
+            Phong update = db.Phongs.Where(a => a.MaPhg == maph).ToList()[0];
+            update.GiaTien += 200000;
+            db.Phongs.Where(a => a.MaPhg == maph).ToList()[0].ThietBis.Add(tbnew);
+            db.ThietBis.Where(a=> a.MaTB == maloaitb).ToList()[0].Phongs.Add(phgnew);
+            db.SaveChanges();
+            //hien thi len luoi
+            dsthietbi = dsPhg[0].ThietBis.ToList();
+            ShowDSPhg(dsPhg, dtgvTBTrongPhg);
+            var x = from a in dsthietbi
+                    select new
+                    {
+                        a.MaTB,
+                        a.TenTB
+                    };
+            dtgvThietBi.DataSource = x.ToList();
         }
 
-        //*******************************************************************************************************
+        //bo thiet bi ra khoi phong
+        private void btnXoaThietBi_Click(object sender, EventArgs e)
+        {
+            int maph = int.Parse(txtMaPhgThietBi.Text);
+            int maloaitb = int.Parse(txtMaLoaiThietBi.Text);
+            List<ThietBi> check = db.Phongs.Where(a => a.MaPhg == maph).ToList()[0].ThietBis.Where(c => c.MaTB == maloaitb).ToList();
+            if (check.Count == 0)
+            {
+                MessageBox.Show("Không Có Thiết Bị Này Trong Phòng");
+                return;
+            }
+           
+            // xóa khoi db
+
+            ThietBi tbremove = db.ThietBis.Where(a => a.MaTB == maloaitb).ToList()[0];
+            Phong phgremove = db.Phongs.Where(a => a.MaPhg == maph).ToList()[0];
+            Phong update = db.Phongs.Where(a => a.MaPhg == maph).ToList()[0];
+            update.GiaTien -=200000 ;
+            db.Phongs.Where(a => a.MaPhg == maph).ToList()[0].ThietBis.Remove(tbremove);
+            db.ThietBis.Where(a => a.MaTB == maloaitb).ToList()[0].Phongs.Remove(phgremove);
+            db.SaveChanges();
+            //hien thi len luoi
+            dsthietbi = dsPhg[0].ThietBis.ToList();
+            ShowDSPhg(dsPhg, dtgvTBTrongPhg);
+            var x = from a in dsthietbi
+                    select new
+                    {
+                        a.MaTB,
+                        a.TenTB
+                    };
+            dtgvThietBi.DataSource = x.ToList();
+        }
+
+        //them thiet bi vô db
+        private void btnThemThietBiVaoKTX_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtMaLTBThemXoa.Text) || string.IsNullOrWhiteSpace(txtMaLTBThemXoa.Text)
+                || string.IsNullOrEmpty(txtTenLTBThemXoa.Text) || string.IsNullOrWhiteSpace(txtTenLTBThemXoa.Text))
+            {
+                MessageBox.Show("Chưa Nhập Thông Tin Hoặc Thiếu");
+                return;
+            }
+            int matb = int.Parse(txtMaLTBThemXoa.Text);
+            bool check = db.ThietBis.Any(a => a.MaTB == matb || a.TenTB == txtTenLTBThemXoa.Text);
+
+            if(check == true)
+            {
+                MessageBox.Show("Mã Trùng Hoặc Đã Tồn Tại Loại Thiết Bị Này");
+                return;
+            }
+            //them vao db
+            ThietBi tb = new ThietBi();
+            tb.MaTB = matb;
+            tb.TenTB = txtTenLTBThemXoa.Text;
+            db.ThietBis.Add(tb);
+            db.SaveChanges();
+
+            //hien thi toan bo len luoi
+
+            dsthietbi = db.ThietBis.ToList();
+            var x = from a in dsthietbi
+                    select new
+                    {
+                        a.MaTB,
+                        a.TenTB
+                    };
+            dtgvThietBi.DataSource = x.ToList();
+        }
+
+        //xoa thiet bi
+        private void btnXoaThietBiKhoiKTX_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtMaLTBThemXoa.Text) || string.IsNullOrWhiteSpace(txtMaLTBThemXoa.Text)
+                || string.IsNullOrEmpty(txtTenLTBThemXoa.Text) || string.IsNullOrWhiteSpace(txtTenLTBThemXoa.Text))
+            {
+                MessageBox.Show("Chưa Nhập Thông Tin Hoặc Thiếu");
+                return;
+            }
+            int matb = int.Parse(txtMaLTBThemXoa.Text);
+            bool check = db.ThietBis.Any(a => a.MaTB == matb || a.TenTB == txtTenLTBThemXoa.Text);
+
+            if (check == false)
+            {
+                MessageBox.Show("Không Có Loại Thiết Bị Này");
+                return;
+            }
+            //Xóa vao db
+            ThietBi tb = db.ThietBis.Where(a=> a.MaTB == matb).ToList()[0];
+
+            foreach(Phong a in db.ThietBis.Where(a=> a.MaTB == matb).ToList()[0].Phongs)
+            {
+                a.GiaTien -= 200000;
+                a.ThietBis.Remove(tb);
+            }    
+
+            db.ThietBis.Remove(tb);
+            db.SaveChanges();
+
+            //hien thi toan bo len luoi
+
+            dsthietbi = db.ThietBis.ToList();
+            var x = from a in dsthietbi
+                    select new
+                    {
+                        a.MaTB,
+                        a.TenTB
+                    };
+            dtgvThietBi.DataSource = x.ToList();
+        }
+
+        //hiện thị tất cả các loại thiết bị
+        private void btnShowAll_Click(object sender, EventArgs e)
+        {
+            dsthietbi = db.ThietBis.ToList();
+            var x = from a in dsthietbi
+                    select new
+                    {
+                        a.MaTB,
+                        a.TenTB
+                    };
+            dtgvThietBi.DataSource = x.ToList();
+        }
+
+//*******************************************************************************************************
         //quản lý hóa đơn
         private void btnQuanLyHoaDon_Click(object sender, EventArgs e)
         {
@@ -578,8 +756,104 @@ namespace DoAnCuoiKyLTHDT
             btnThanhToan.BackColor = Color.FromArgb(224, 224, 224);
             btnQLTB.BackColor = Color.FromArgb(224, 224, 224);
             btnQuanLyHoaDon.BackColor = Color.Lime;
+
+            //chuyen hien thi chuc nang
+            ChucNangQuanLy.Visible = false;
+            ChucNangQLSV.Visible = false;
+            ChucNangDKO.Visible = false;
+            ChucNangThanhToan.Visible = false;
+            ChucNangQLTB.Visible = false;
+            ChucNangQLHoaDon.Visible = true;
+
+            //hien thi thang thanh toan
+            txtThangHoaDonDcTao.Text = DateTime.Now.ToString("MM-yyyy");
+
+            
+            //hien thi len combobox
+            var x = from c in dshoadon
+                    select new
+                    {
+                        ThangThanhToan = c.NgayLapHD.ToString("MM-yyyy"),
+                    };
+            cmbThangThanhToan.DataSource = x.ToList();
+            cmbThangThanhToan.DisplayMember = "ThangThanhToan";
+
+            if (dshoadon.Count == 0)
+            {
+                return;
+            }
+            //hien thi len luoi ds hoa don chua thanh toan
+            dshoadon = db.HoaDons.Where(a=> (a.Phong.GiaTien - a.SoTienThanhToan) > 0 && a.NgayLapHD.ToString("MM-yyyy") == txtThangHoaDonDcTao.Text).ToList();
+            ShowDSHD(dshoadon, dtgvHoaDon);
         }
 
-        
+
+        //hien thi hoa don chua thanh toan
+        private void radChuaThanhToan_CheckedChanged(object sender, EventArgs e)
+        {
+            string thangthanhtoan = cmbThangThanhToan.SelectedItem.ToString();
+            if (radChuaThanhToan.Checked)
+            {
+                dshoadon = db.HoaDons.Where(a => (a.Phong.GiaTien - a.SoTienThanhToan) > 0
+                    && a.NgayLapHD.ToString("MM-yyyy") == thangthanhtoan).ToList();
+                ShowDSHD(dshoadon, dtgvHoaDon);
+            }
+        }
+
+        //hien thi danh sach da thanh toan
+        private void radDaThanhToan_CheckedChanged(object sender, EventArgs e)
+        {
+            string thangthanhtoan = cmbThangThanhToan.SelectedItem.ToString();
+            if (radDaThanhToan.Checked)
+            {
+                dshoadon = db.HoaDons.Where(a => (a.Phong.GiaTien - a.SoTienThanhToan) == 0
+                    && a.NgayLapHD.ToString("MM-yyyy") == thangthanhtoan).ToList();
+                ShowDSHD(dshoadon, dtgvHoaDon);
+            }
+        }
+
+        private void cmbThangThanhToan_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string thangthanhtoan = cmbThangThanhToan.SelectedItem.ToString();
+
+            dshoadon = db.HoaDons.Where(a => (a.Phong.GiaTien - a.SoTienThanhToan) == 0 
+                && a.NgayLapHD.ToString("MM-yyyy") == thangthanhtoan).ToList();
+            ShowDSHD(dshoadon, dtgvHoaDon);
+        }
+
+
+
+        //tao hoa dơn
+        private void txtTaoHoaDon_Click(object sender, EventArgs e)
+        {
+            string maHD;
+            bool check = false;
+            Random rd = new Random();
+            HoaDon hd = new HoaDon();
+            for (int i = 0; i < db.SinhViens.ToList().Count; i++)
+            {
+                //tao ma tu dong va check trung
+                do
+                {
+                    
+                    maHD = DateTime.Now.ToString("hhmmss") + rd.Next(10, 99);
+
+                    check = db.HoaDons.Any(a => a.MaHoaDon == maHD);
+                    
+                
+                } while (check == true);
+                hd.MaHoaDon = maHD;
+                hd.NgayLapHD = DateTime.Now;
+                hd.NgayThanhToan = null;
+                hd.SoTienThanhToan = 0;
+                hd.Masv = db.SinhViens.ToList()[i].Masv;
+                hd.MaPhg = db.SinhViens.ToList()[i].Phong.MaPhg;
+
+                dshoadon.Add(hd);
+            }
+            db.HoaDons.AddRange(dshoadon);
+            db.SaveChanges();
+            MessageBox.Show("tao thanh cong");
+        }
     }
 }
