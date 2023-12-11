@@ -20,26 +20,75 @@ D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\obj\Debug\DoAnCuoiKyLTHDT.GiaoDien
 D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\obj\Debug\DoAnCuoiKyLTHDT.csproj.CopyComplete
 D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\obj\Debug\DoAnCuoiKyLTHDT.LayLaiMK.resources
 D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\obj\Debug\DoAnCuoiKyLTHDT.GiaoDienQuanLy.resources
-E:\New git\DoAnCuoiKyLTHDT\DoAnCuoiKyLTHDT\bin\Debug\DoAnCuoiKyLTHDT.exe.config
-E:\New git\DoAnCuoiKyLTHDT\DoAnCuoiKyLTHDT\bin\Debug\DoAnCuoiKyLTHDT.exe
-E:\New git\DoAnCuoiKyLTHDT\DoAnCuoiKyLTHDT\bin\Debug\DoAnCuoiKyLTHDT.pdb
-E:\New git\DoAnCuoiKyLTHDT\DoAnCuoiKyLTHDT\bin\Debug\vi\DoAnCuoiKyLTHDT.resources.dll
-E:\New git\DoAnCuoiKyLTHDT\DoAnCuoiKyLTHDT\bin\Debug\EntityFramework.dll
-E:\New git\DoAnCuoiKyLTHDT\DoAnCuoiKyLTHDT\bin\Debug\EntityFramework.SqlServer.dll
-E:\New git\DoAnCuoiKyLTHDT\DoAnCuoiKyLTHDT\bin\Debug\MaterialSkin.dll
-E:\New git\DoAnCuoiKyLTHDT\DoAnCuoiKyLTHDT\bin\Debug\EntityFramework.xml
-E:\New git\DoAnCuoiKyLTHDT\DoAnCuoiKyLTHDT\bin\Debug\EntityFramework.SqlServer.xml
-E:\New git\DoAnCuoiKyLTHDT\DoAnCuoiKyLTHDT\obj\Debug\DoAnCuoiKyLTHDT.csproj.AssemblyReference.cache
-E:\New git\DoAnCuoiKyLTHDT\DoAnCuoiKyLTHDT\obj\Debug\DoAnCuoiKyLTHDT.Login.resources
-E:\New git\DoAnCuoiKyLTHDT\DoAnCuoiKyLTHDT\obj\Debug\DoAnCuoiKyLTHDT.DKOKTX.resources
-E:\New git\DoAnCuoiKyLTHDT\DoAnCuoiKyLTHDT\obj\Debug\DoAnCuoiKyLTHDT.GiaoDienQuanLy.resources
-E:\New git\DoAnCuoiKyLTHDT\DoAnCuoiKyLTHDT\obj\Debug\DoAnCuoiKyLTHDT.GiaoDienSV.resources
-E:\New git\DoAnCuoiKyLTHDT\DoAnCuoiKyLTHDT\obj\Debug\DoAnCuoiKyLTHDT.LayLaiMK.resources
-E:\New git\DoAnCuoiKyLTHDT\DoAnCuoiKyLTHDT\obj\Debug\DoAnCuoiKyLTHDT.Properties.Resources.resources
-E:\New git\DoAnCuoiKyLTHDT\DoAnCuoiKyLTHDT\obj\Debug\DoAnCuoiKyLTHDT.Login.vi.resources
-E:\New git\DoAnCuoiKyLTHDT\DoAnCuoiKyLTHDT\obj\Debug\DoAnCuoiKyLTHDT.csproj.GenerateResource.cache
-E:\New git\DoAnCuoiKyLTHDT\DoAnCuoiKyLTHDT\obj\Debug\DoAnCuoiKyLTHDT.csproj.CoreCompileInputs.cache
-E:\New git\DoAnCuoiKyLTHDT\DoAnCuoiKyLTHDT\obj\Debug\vi\DoAnCuoiKyLTHDT.resources.dll
-E:\New git\DoAnCuoiKyLTHDT\DoAnCuoiKyLTHDT\obj\Debug\DoAnCuoiKyLTHDT.csproj.CopyComplete
-E:\New git\DoAnCuoiKyLTHDT\DoAnCuoiKyLTHDT\obj\Debug\DoAnCuoiKyLTHDT.exe
-E:\New git\DoAnCuoiKyLTHDT\DoAnCuoiKyLTHDT\obj\Debug\DoAnCuoiKyLTHDT.pdb
+D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\bin\Debug\Azure.Core.dll
+D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\bin\Debug\Azure.Identity.dll
+D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\bin\Debug\Microsoft.Data.SqlClient.dll
+D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\bin\Debug\Microsoft.Data.Tools.Components.dll
+D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\bin\Debug\Microsoft.Data.Tools.Schema.Sql.dll
+D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\bin\Debug\Microsoft.Data.Tools.Schema.Sql.UnitTesting.dll
+D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\bin\Debug\Microsoft.Data.Tools.Schema.Sql.UnitTestingAdapter.dll
+D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\bin\Debug\Microsoft.Identity.Client.dll
+D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\bin\Debug\Microsoft.Identity.Client.Extensions.Msal.dll
+D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\bin\Debug\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\bin\Debug\Microsoft.IdentityModel.Logging.dll
+D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\bin\Debug\Microsoft.IdentityModel.Protocols.dll
+D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\bin\Debug\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\bin\Debug\Microsoft.IdentityModel.Tokens.dll
+D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\bin\Debug\System.Buffers.dll
+D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\bin\Debug\System.Configuration.ConfigurationManager.dll
+D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\bin\Debug\System.IdentityModel.Tokens.Jwt.dll
+D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\bin\Debug\System.Memory.dll
+D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\bin\Debug\System.Numerics.Vectors.dll
+D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\bin\Debug\System.Security.AccessControl.dll
+D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\bin\Debug\System.Security.Cryptography.ProtectedData.dll
+D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\bin\Debug\System.Security.Permissions.dll
+D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\bin\Debug\System.Security.Principal.Windows.dll
+D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\bin\Debug\System.Text.Encodings.Web.dll
+D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\bin\Debug\System.Text.Json.dll
+D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\bin\Debug\System.Threading.Tasks.Extensions.dll
+D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\bin\Debug\System.ValueTuple.dll
+D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\bin\Debug\Microsoft.Data.Tools.Utilities.dll
+D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\bin\Debug\Microsoft.SqlServer.TransactSql.ScriptDom.dll
+D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\bin\Debug\Microsoft.SqlServer.Types.dll
+D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\bin\Debug\Azure.Core.xml
+D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\bin\Debug\Azure.Identity.xml
+D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\bin\Debug\Microsoft.Data.SqlClient.pdb
+D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\bin\Debug\Microsoft.Data.SqlClient.xml
+D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\bin\Debug\Microsoft.Identity.Client.xml
+D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\bin\Debug\Microsoft.Identity.Client.Extensions.Msal.xml
+D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\bin\Debug\Microsoft.IdentityModel.JsonWebTokens.xml
+D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\bin\Debug\Microsoft.IdentityModel.Logging.xml
+D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\bin\Debug\Microsoft.IdentityModel.Protocols.xml
+D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\bin\Debug\Microsoft.IdentityModel.Protocols.OpenIdConnect.xml
+D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\bin\Debug\Microsoft.IdentityModel.Tokens.xml
+D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\bin\Debug\System.Buffers.xml
+D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\bin\Debug\System.Configuration.ConfigurationManager.xml
+D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\bin\Debug\System.IdentityModel.Tokens.Jwt.xml
+D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\bin\Debug\System.Memory.xml
+D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\bin\Debug\System.Numerics.Vectors.xml
+D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\bin\Debug\System.Security.AccessControl.xml
+D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\bin\Debug\System.Security.Permissions.xml
+D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\bin\Debug\System.Security.Principal.Windows.xml
+D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\bin\Debug\System.Text.Encodings.Web.xml
+D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\bin\Debug\System.Text.Json.xml
+D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\bin\Debug\System.Threading.Tasks.Extensions.xml
+D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\bin\Debug\System.ValueTuple.xml
+D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\bin\Debug\de\Microsoft.Data.SqlClient.resources.dll
+D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\bin\Debug\es\Microsoft.Data.SqlClient.resources.dll
+D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\bin\Debug\fr\Microsoft.Data.SqlClient.resources.dll
+D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\bin\Debug\it\Microsoft.Data.SqlClient.resources.dll
+D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\bin\Debug\ja\Microsoft.Data.SqlClient.resources.dll
+D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\bin\Debug\ko\Microsoft.Data.SqlClient.resources.dll
+D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\bin\Debug\pt-BR\Microsoft.Data.SqlClient.resources.dll
+D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\bin\Debug\ru\Microsoft.Data.SqlClient.resources.dll
+D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\bin\Debug\zh-Hans\Microsoft.Data.SqlClient.resources.dll
+D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\bin\Debug\zh-Hant\Microsoft.Data.SqlClient.resources.dll
+D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\obj\Debug\DoAnCuoiKyLTHDT.csproj.SuggestedBindingRedirects.cache
+D:\code\laptrinhhuongdoituong\DoAnCuoiKyLTHDT\obj\Debug\DoAnCuoiKyLTHDT.exe.config
