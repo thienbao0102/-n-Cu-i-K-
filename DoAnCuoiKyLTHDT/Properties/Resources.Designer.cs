@@ -63,6 +63,16 @@ namespace DoAnCuoiKyLTHDT.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _84949_house_housing_recreation_city_hd_image_free_png {
+            get {
+                object obj = ResourceManager.GetObject("84949-house-housing-recreation-city-hd-image-free-png", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ảnh_nền_login {
             get {
                 object obj = ResourceManager.GetObject("ảnh nền login", resourceCulture);
