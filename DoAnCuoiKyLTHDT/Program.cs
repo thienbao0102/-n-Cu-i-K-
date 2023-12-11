@@ -16,7 +16,7 @@ namespace DoAnCuoiKyLTHDT
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new GiaoDienSV());
+            Application.Run(new GiaoDienQuanLy());
         }
     }
 }
