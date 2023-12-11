@@ -118,7 +118,7 @@
             this.materialTabControl1.Multiline = true;
             this.materialTabControl1.Name = "materialTabControl1";
             this.materialTabControl1.SelectedIndex = 0;
-            this.materialTabControl1.Size = new System.Drawing.Size(1108, 664);
+            this.materialTabControl1.Size = new System.Drawing.Size(1124, 703);
             this.materialTabControl1.TabIndex = 1;
             // 
             // ThongTinPage
@@ -129,7 +129,7 @@
             this.ThongTinPage.ImageKey = "person-circle.png";
             this.ThongTinPage.Location = new System.Drawing.Point(4, 39);
             this.ThongTinPage.Name = "ThongTinPage";
-            this.ThongTinPage.Size = new System.Drawing.Size(1100, 621);
+            this.ThongTinPage.Size = new System.Drawing.Size(1116, 660);
             this.ThongTinPage.TabIndex = 3;
             this.ThongTinPage.Text = "Thông tin cá nhân";
             this.ThongTinPage.UseVisualStyleBackColor = true;
@@ -631,7 +631,7 @@
             this.DKNhanThanPage.Location = new System.Drawing.Point(4, 39);
             this.DKNhanThanPage.Name = "DKNhanThanPage";
             this.DKNhanThanPage.Padding = new System.Windows.Forms.Padding(3);
-            this.DKNhanThanPage.Size = new System.Drawing.Size(1084, 582);
+            this.DKNhanThanPage.Size = new System.Drawing.Size(1116, 660);
             this.DKNhanThanPage.TabIndex = 0;
             this.DKNhanThanPage.Text = "Đăng kí nhân thân";
             // 
@@ -839,7 +839,7 @@
             this.TimKiemPage.Location = new System.Drawing.Point(4, 39);
             this.TimKiemPage.Name = "TimKiemPage";
             this.TimKiemPage.Padding = new System.Windows.Forms.Padding(3);
-            this.TimKiemPage.Size = new System.Drawing.Size(1084, 582);
+            this.TimKiemPage.Size = new System.Drawing.Size(1116, 660);
             this.TimKiemPage.TabIndex = 1;
             this.TimKiemPage.Text = "Tìm kiếm";
             // 
@@ -1016,7 +1016,7 @@
             this.ThanhToanPage.ImageKey = "server.png";
             this.ThanhToanPage.Location = new System.Drawing.Point(4, 39);
             this.ThanhToanPage.Name = "ThanhToanPage";
-            this.ThanhToanPage.Size = new System.Drawing.Size(1084, 582);
+            this.ThanhToanPage.Size = new System.Drawing.Size(1116, 660);
             this.ThanhToanPage.TabIndex = 2;
             this.ThanhToanPage.Text = "Thanh toán";
             // 
@@ -1165,7 +1165,7 @@
             // GiaoDienSV
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(1114, 731);
+            this.ClientSize = new System.Drawing.Size(1130, 770);
             this.Controls.Add(this.materialTabControl1);
             this.DrawerAutoShow = true;
             this.DrawerShowIconsWhenHidden = true;
