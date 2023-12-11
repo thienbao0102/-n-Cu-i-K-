@@ -13,19 +13,20 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.Remoting.Contexts;
 using System.Data.Entity;
+using System.Data.Entity.Validation;
 
 namespace DoAnCuoiKyLTHDT
 {
     public partial class GiaoDienQuanLy : Form
     {
 
-        DoAnCuoiKyLTHDTEntities2 db = new DoAnCuoiKyLTHDTEntities2 ();
+        DoAnCuoiKyLTHDTEntities2 db = new DoAnCuoiKyLTHDTEntities2();
         List<Phong> dsPhg = new List<Phong>();
         List<SinhVien> dssv = new List<SinhVien>();
-        List<ThanNhan> dstn = new List<ThanNhan>();
         List<DangKyO> dsdk = new List<DangKyO>();
         List<HoaDon> dshoadon = new List<HoaDon>();
         List<ThietBi> dsthietbi = new List<ThietBi>();
+
         private int index;
         public GiaoDienQuanLy()
         {
@@ -86,12 +87,10 @@ namespace DoAnCuoiKyLTHDT
         {
             DataGridView a = (DataGridView)sender;
             a.DataSource = dshd;
-            a.Columns[5].Width = 0;
-            a.Columns[5].Visible = false;
+
             a.Columns[6].Width = 0;
             a.Columns[6].Visible = false;
-            a.Columns[4].Width = 0;
-            a.Columns[4].Visible = false;
+
             a.Columns[7].Width = 0;
             a.Columns[7].Visible = false;
 
@@ -171,6 +170,16 @@ namespace DoAnCuoiKyLTHDT
             txtGioiTinh.Text = dssv[0].GioiTinh;
 
             //hien thi than nhan cua sinh vien dau tien
+            var a = from c in dssv[0].ThanNhans.ToList()
+                    select new
+                    {
+                        c.MaTN,
+                        c.TenTN,
+                        c.QuanHe,
+                        c.Masv
+                    };
+
+            dtgvThanNhanTham.DataSource = a.ToList();
         }
 
         private void dtgvSinhVien_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -188,15 +197,25 @@ namespace DoAnCuoiKyLTHDT
             txtEmail.Text = dssv[e.RowIndex].email;
             txtLopSV.Text = dssv[e.RowIndex].Lop;
             txtGioiTinh.Text = dssv[e.RowIndex].GioiTinh;
-            
+
 
             //hien thi than nhan cua sv dc chon
+            var a = from c in dssv[e.RowIndex].ThanNhans.ToList()
+                    select new
+                    {
+                        c.MaTN,
+                        c.TenTN,
+                        c.QuanHe,
+                        c.Masv
+                    };
+
+            dtgvThanNhanTham.DataSource = a.ToList();
         }
 
         //tim kiem sinh vien
         private void btnTimKiemSV_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(txtTimKiemSinhVien.Text);
+            
             //loc danh sach tim kiem
             if(string.IsNullOrEmpty(txtTimKiemSinhVien.Text) || 
                 string.IsNullOrWhiteSpace(txtTimKiemSinhVien.Text))
@@ -224,9 +243,71 @@ namespace DoAnCuoiKyLTHDT
             txtGioiTinh.Text = "";
 
             //hien thi thong tin than nhan cua sinh vien len luoi
+            var a = from c in dssv[0].ThanNhans.ToList()
+                    select new
+                    {
+                        c.MaTN,
+                        c.TenTN,
+                        c.QuanHe,
+                        c.Masv
+                    };
+
+            dtgvThanNhanTham.DataSource = a.ToList() ;
+
         }
 
- //******************************************************************************************************
+        // hienj thi toan bo than nhan
+        private void btnShowAllThanNhan_Click(object sender, EventArgs e)
+        {
+            var a = from c in db.ThanNhans.ToList()
+                    select new
+                    {
+                        c.MaTN,
+                        c.TenTN,
+                        c.QuanHe,
+                        c.Masv
+                    };
+
+            dtgvThanNhanTham.DataSource = a.ToList();
+        }
+
+        //cap nhat thong tin sinh vien
+        private void btnCapNhat_Click(object sender, EventArgs e)
+        {
+            SinhVien sv = db.SinhViens.Where(a=> a.Masv == txtMSSV.Text).ToList()[0];
+
+            sv.SDT = txtSDT.Text;
+            sv.email = txtEmail.Text;
+            sv.MaPhg = int.Parse(txtPhongSV.Text);
+            sv.NgayVaoO = txtNgayVaoO.Value;
+
+            db.SaveChanges();
+            //cap nhat lai thong tin tren luoi
+            dssv = db.SinhViens.ToList();
+            ShowDSSV(dssv, dtgvSinhVien);
+        }
+
+        //Xoa sinh vien khoi ktx
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            SinhVien sv = db.SinhViens.Where(a => a.Masv == txtMSSV.Text).ToList()[0];
+            for(int i = 0; i < sv.ThanNhans.Count; i++)
+            {
+                db.ThanNhans.Remove(sv.ThanNhans.ToList()[i]);
+            }
+            for(int i = 0; i < sv.HoaDons.Count; i++)
+            {
+                db.HoaDons.Remove(sv.HoaDons.ToList()[i]);
+            }
+            db.SinhViens.Remove(sv);
+            db.SaveChanges();
+
+            //cap nhat lai thong tin tren luoi
+            dssv = db.SinhViens.ToList();
+            ShowDSSV(dssv, dtgvSinhVien);
+        }
+
+//******************************************************************************************************
         //nut bam cua chuc nang quan ly phong
         private void btnQuanlyPhong_Click(object sender, EventArgs e)
         {
@@ -453,7 +534,7 @@ namespace DoAnCuoiKyLTHDT
             {
                 client.Send(message);
 
-                MessageBox.Show("Đã Gửi Mail Duyệt Cho Sinh Viên");
+                MessageBox.Show("Đã Gửi Mail Lý Do Cho Sinh Viên");
             }
             catch (Exception)
             {
@@ -500,13 +581,39 @@ namespace DoAnCuoiKyLTHDT
         // nut tim kieem sinh vien thanh toan
         private void btnTimKiemSVThanhToan_Click(object sender, EventArgs e)
         {
+            
+            if (string.IsNullOrEmpty(txtMSSVThanhToan.Text) || string.IsNullOrWhiteSpace(txtMSSVThanhToan.Text))
+            {
+                dshoadon = db.HoaDons.Where(a => (a.Phong.GiaTien - a.SoTienThanhToan) > 0).ToList();
+            }
+            else
+            {
+                dshoadon = db.HoaDons.Where(a => (a.Phong.GiaTien - a.SoTienThanhToan) > 0
+                && a.SinhVien.Masv == txtMSSVThanhToan.Text).ToList();
+                if (dshoadon.Count == 0)
+                {
+                    MessageBox.Show("Không Có Hóa Đơn Cho Sinh Viên Này");
+                    return;
+                }
+            }
+            var x = from c in dshoadon
+                    select new
+                    {
+                        c.MaHoaDon,
+                        c.SinhVien.Masv,
+                        c.SinhVien.TenSV,
+                        Thang = c.NgayLapHD.ToString("MM-yyyy"),
+                        TienNo = (c.SinhVien.NgayVaoO.Month == c.NgayLapHD.Month) ? (c.Phong.GiaTien * 2).ToString()
+                                     : c.Phong.GiaTien.ToString(),
 
+                    };
+            dataGridView1.DataSource = x.ToList();
         }
 
         // nút thanh toán
         private void btnThanhToanTienKTX_Click(object sender, EventArgs e)
         {
-            HoaDon hd = dshoadon[0];
+            HoaDon hd = db.HoaDons.Where(a=> a.Masv == txtMSSVThanhToan.Text).ToList()[0];
 
             hd.SoTienThanhToan = int.Parse(txtSoTienThanhToan.Text);
             db.SaveChanges();
@@ -524,6 +631,20 @@ namespace DoAnCuoiKyLTHDT
 
                     };
             dataGridView1.DataSource = x.ToList();
+        }
+
+        //cell click cho luoi thanh toan
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(e.RowIndex > dataGridView1.Rows.Count || e.RowIndex < 0)
+            {
+                return;
+            }
+            txtMSSVThanhToan.Text = dshoadon[e.RowIndex].Masv;
+            txtTenSVThanhToan.Text = dshoadon[e.RowIndex].SinhVien.TenSV;
+            txtSoTienSVNo.Text = (dshoadon[e.RowIndex].Phong.GiaTien - dshoadon[e.RowIndex].SoTienThanhToan).ToString();
+            txtThangThanhToan.Text = dshoadon[e.RowIndex].NgayLapHD.Month.ToString();
+            txtMaHoaDonThanhToan.Text = dshoadon[e.RowIndex].MaHoaDon;
         }
 
 //******************************************************************************************************
@@ -766,36 +887,27 @@ namespace DoAnCuoiKyLTHDT
             ChucNangQLHoaDon.Visible = true;
 
             //hien thi thang thanh toan
+            txtChonThangThanhToan.CustomFormat = "MM-yyyy";
             txtThangHoaDonDcTao.Text = DateTime.Now.ToString("MM-yyyy");
 
-            
-            //hien thi len combobox
-            var x = from c in dshoadon
-                    select new
-                    {
-                        ThangThanhToan = c.NgayLapHD.ToString("MM-yyyy"),
-                    };
-            cmbThangThanhToan.DataSource = x.ToList();
-            cmbThangThanhToan.DisplayMember = "ThangThanhToan";
+            //hien thị len lưới
 
-            if (dshoadon.Count == 0)
-            {
-                return;
-            }
-            //hien thi len luoi ds hoa don chua thanh toan
-            dshoadon = db.HoaDons.Where(a=> (a.Phong.GiaTien - a.SoTienThanhToan) > 0 && a.NgayLapHD.ToString("MM-yyyy") == txtThangHoaDonDcTao.Text).ToList();
+            dshoadon = db.HoaDons.Where(c=> c.NgayLapHD.Month == txtChonThangThanhToan.Value.Month
+                && c.NgayLapHD.Year == txtChonThangThanhToan.Value.Year
+                && (c.Phong.GiaTien - c.SoTienThanhToan) > 0).ToList();
             ShowDSHD(dshoadon, dtgvHoaDon);
+
         }
 
 
         //hien thi hoa don chua thanh toan
         private void radChuaThanhToan_CheckedChanged(object sender, EventArgs e)
         {
-            string thangthanhtoan = cmbThangThanhToan.SelectedItem.ToString();
-            if (radChuaThanhToan.Checked)
+            if(radChuaThanhToan.Checked)
             {
-                dshoadon = db.HoaDons.Where(a => (a.Phong.GiaTien - a.SoTienThanhToan) > 0
-                    && a.NgayLapHD.ToString("MM-yyyy") == thangthanhtoan).ToList();
+                dshoadon = db.HoaDons.Where(c => c.NgayLapHD.Month == txtChonThangThanhToan.Value.Month
+                && c.NgayLapHD.Year == txtChonThangThanhToan.Value.Year
+                && (c.Phong.GiaTien - c.SoTienThanhToan) > 0).ToList();
                 ShowDSHD(dshoadon, dtgvHoaDon);
             }
         }
@@ -803,22 +915,13 @@ namespace DoAnCuoiKyLTHDT
         //hien thi danh sach da thanh toan
         private void radDaThanhToan_CheckedChanged(object sender, EventArgs e)
         {
-            string thangthanhtoan = cmbThangThanhToan.SelectedItem.ToString();
-            if (radDaThanhToan.Checked)
+            if(radDaThanhToan.Checked)
             {
-                dshoadon = db.HoaDons.Where(a => (a.Phong.GiaTien - a.SoTienThanhToan) == 0
-                    && a.NgayLapHD.ToString("MM-yyyy") == thangthanhtoan).ToList();
+                dshoadon = db.HoaDons.Where(c => c.NgayLapHD.Month == txtChonThangThanhToan.Value.Month
+                && c.NgayLapHD.Year == txtChonThangThanhToan.Value.Year
+                && (c.Phong.GiaTien - c.SoTienThanhToan) <= 0).ToList();
                 ShowDSHD(dshoadon, dtgvHoaDon);
             }
-        }
-
-        private void cmbThangThanhToan_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string thangthanhtoan = cmbThangThanhToan.SelectedItem.ToString();
-
-            dshoadon = db.HoaDons.Where(a => (a.Phong.GiaTien - a.SoTienThanhToan) == 0 
-                && a.NgayLapHD.ToString("MM-yyyy") == thangthanhtoan).ToList();
-            ShowDSHD(dshoadon, dtgvHoaDon);
         }
 
 
@@ -826,34 +929,129 @@ namespace DoAnCuoiKyLTHDT
         //tao hoa dơn
         private void txtTaoHoaDon_Click(object sender, EventArgs e)
         {
-            string maHD;
-            bool check = false;
-            Random rd = new Random();
-            HoaDon hd = new HoaDon();
-            for (int i = 0; i < db.SinhViens.ToList().Count; i++)
+            try
             {
-                //tao ma tu dong va check trung
-                do
+                string maHD;
+                bool check = false;
+            
+                Random rd = new Random();
+                HoaDon hd;
+                for (int i = 0; i < db.SinhViens.ToList().Count; i++)
                 {
-                    
-                    maHD = DateTime.Now.ToString("hhmmss") + rd.Next(10, 99);
+                    if (db.SinhViens.ToList()[i].HoaDons.Where(a => a.NgayLapHD.Month == DateTime.Now.Month
+                        && a.NgayLapHD.Year == DateTime.Now.Year).ToList().Count != 0)
+                    {
+                        MessageBox.Show("sv da co hoa don");
+                         continue;
+                }
 
-                    check = db.HoaDons.Any(a => a.MaHoaDon == maHD);
+                    hd = new HoaDon();
+                    //tao ma tu dong va check trung
+                    do
+                    {                 
+                        maHD = DateTime.Now.ToString("hhmmss") + rd.Next(10, 99);
+
+                        check = db.HoaDons.Any(a => a.MaHoaDon == maHD);
                     
+                    } while (check == true);   
+                    hd.MaHoaDon = maHD;
+                    hd.NgayLapHD = DateTime.Now;
+                    hd.SoTienThanhToan = 0;
+                    hd.Masv = db.SinhViens.ToList()[i].Masv;
+                    hd.MaPhg = db.SinhViens.ToList()[i].Phong.MaPhg;              
+                    db.HoaDons.Add(hd);
+                    db.SaveChanges();
+                    //MessageBox.Show(db.HoaDons.ToList().Count.ToString());
+                    // neu sv mơi vô ơ thang dau thi sẽ có 2 hoa don coc cho 2 thang
+                    if (db.SinhViens.ToList()[i].NgayVaoO.Month == DateTime.Now.Month
+                        && db.SinhViens.ToList()[i].NgayVaoO.Year == DateTime.Now.Year)
+                    {
+                        hd= new HoaDon();
+                        //tao ma tu dong va check trung
+                        do
+                        {
+                            check = false;
+                            maHD = DateTime.Now.ToString("hhmmss") + rd.Next(10, 99);
+
+                            check = db.HoaDons.Any(a => a.MaHoaDon == maHD);
+                        } while (check == true);
+                        hd.MaHoaDon = maHD;
+                        hd.NgayLapHD = DateTime.Now.AddMonths(1);
+                        hd.NgayThanhToan = null;
+                        hd.SoTienThanhToan = 0;
+                        hd.Masv = db.SinhViens.ToList()[i].Masv;
+                        hd.MaPhg = db.SinhViens.ToList()[i].Phong.MaPhg;
+                        db.HoaDons.Add(hd);
+                        db.SaveChanges();
+                    }
+                }
+
+            
+                MessageBox.Show("tao thanh cong");
+                if (radChuaThanhToan.Checked)
+                {
+                    dshoadon = db.HoaDons.Where(c => c.NgayLapHD.Month == txtChonThangThanhToan.Value.Month
+                    && c.NgayLapHD.Year == txtChonThangThanhToan.Value.Year
+                    && (c.Phong.GiaTien - c.SoTienThanhToan) > 0).ToList();
+                    ShowDSHD(dshoadon, dtgvHoaDon);
+                }
+                else if (radDaThanhToan.Checked)
+                {
+                    dshoadon = db.HoaDons.Where(c => c.NgayLapHD.Month == txtChonThangThanhToan.Value.Month
+                    && c.NgayLapHD.Year == txtChonThangThanhToan.Value.Year
+                    && (c.Phong.GiaTien - c.SoTienThanhToan) == 0).ToList();
+                    ShowDSHD(dshoadon, dtgvHoaDon);
+                }
                 
-                } while (check == true);
-                hd.MaHoaDon = maHD;
-                hd.NgayLapHD = DateTime.Now;
-                hd.NgayThanhToan = null;
-                hd.SoTienThanhToan = 0;
-                hd.Masv = db.SinhViens.ToList()[i].Masv;
-                hd.MaPhg = db.SinhViens.ToList()[i].Phong.MaPhg;
-
-                dshoadon.Add(hd);
             }
-            db.HoaDons.AddRange(dshoadon);
-            db.SaveChanges();
-            MessageBox.Show("tao thanh cong");
+            catch (DbEntityValidationException ex)
+            {
+                foreach (var validationErrors in ex.EntityValidationErrors)
+                {
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                    {
+                        MessageBox.Show($"Property: {validationError.PropertyName}, Error: {validationError.ErrorMessage}");
+                    }
+                }
+            }
+
+            
         }
+
+        private void dtgvHoaDon_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex > dtgvHoaDon.Rows.Count || e.RowIndex < 0)
+            {
+                return;
+            }
+
+            txtMSSVHoaDon.Text = dshoadon[e.RowIndex].SinhVien.Masv;
+            txtTenSVHoaDon.Text = dshoadon[e.RowIndex].SinhVien.TenSV;
+            txtTienNoHoaDon.Text = (dshoadon[e.RowIndex].Phong.GiaTien - dshoadon[e.RowIndex].SoTienThanhToan).ToString();
+            txtMaPhongHoaDon.Text = dshoadon[e.RowIndex].MaPhg.ToString();
+
+
+
+        }
+
+        private void btnLoadHoaDon_Click(object sender, EventArgs e)
+        {
+            if (radChuaThanhToan.Checked)
+            {
+                dshoadon = db.HoaDons.Where(c => c.NgayLapHD.Month == txtChonThangThanhToan.Value.Month
+                && c.NgayLapHD.Year == txtChonThangThanhToan.Value.Year
+                && (c.Phong.GiaTien - c.SoTienThanhToan) > 0).ToList();
+                ShowDSHD(dshoadon, dtgvHoaDon);
+            }
+            else if(radDaThanhToan.Checked)
+            {
+                dshoadon = db.HoaDons.Where(c => c.NgayLapHD.Month == txtChonThangThanhToan.Value.Month
+                && c.NgayLapHD.Year == txtChonThangThanhToan.Value.Year
+                && (c.Phong.GiaTien - c.SoTienThanhToan) == 0).ToList();
+                ShowDSHD(dshoadon, dtgvHoaDon);
+            }
+        }
+
+        
     }
 }
