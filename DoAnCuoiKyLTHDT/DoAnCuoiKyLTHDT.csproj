@@ -195,6 +195,7 @@
     <None Include="Images\user.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Images\GiaoDienSVimg\84949-house-housing-recreation-city-hd-image-free-png.png" />
     <Content Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
